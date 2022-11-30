@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components"
+import Logo from "./components/Logo"
+import FlashCards from "./components/FlashCards"
+import Footer from "./components/Footer"
 
-function App() {
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ScreenContainer>
+      <Logo/>
+      <FlashCards/>
+      <Footer/>
+    </ScreenContainer>
+  )
 }
 
-export default App;
+{/* styled components */}
+
+const ScreenContainer = styled.div`
+  background-color: #FB6B6B;
+  width: 375px;
+  min-height: 667px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 200px;
+`
+
