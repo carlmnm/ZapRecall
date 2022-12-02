@@ -2,13 +2,22 @@ import styled from "styled-components"
 import Logo from "./components/Logo"
 import FlashCards from "./components/FlashCards"
 import Footer from "./components/Footer"
+import GlobalStyle from "./components/GlobalStyle"
+import React, {useState} from "react"
+
 
 
 export default function App() {
+  const[enabled, setEnabled] = useState(true)
+ 
   return (
     <ScreenContainer>
+      <GlobalStyle/>
       <Logo/>
-      <FlashCards/>
+      <FlashCards
+        enabled={enabled}
+        setEnabled={setEnabled}
+      />
       <Footer/>
     </ScreenContainer>
   )
