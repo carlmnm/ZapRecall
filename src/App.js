@@ -8,15 +8,14 @@ import React, {useState} from "react"
 
 
 export default function App() {
-  const[enabled, setEnabled] = useState(true)
+  
  
   return (
     <ScreenContainer>
       <GlobalStyle/>
       <Logo/>
       <FlashCards
-        enabled={enabled}
-        setEnabled={setEnabled}
+
       />
       <Footer/>
     </ScreenContainer>

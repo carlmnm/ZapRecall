@@ -2,16 +2,18 @@ import styled from "styled-components"
 import setaPlay from "../assets/img/seta_play.png"
 import cards from "./cards"
 import setaVirar from "../assets/img/seta_virar.png"
+import React, {useState} from "react"
 
-export default function flashCards({enabled, setEnabled}) {
+export default function FlashCards() {
        
     function FlashCard(props) {
         let indice = cards.indexOf(props.pergunta)
+        const[enabled, setEnabled] = useState(true)
 
         function exibirPergunta(){
             if(enabled === true){
                 setEnabled(false)
-            } else{
+            } else {
                 setEnabled(true)
             }
         } 
@@ -29,12 +31,11 @@ export default function flashCards({enabled, setEnabled}) {
                 <p>
                     {props.pergunta.question}
                 </p>
-                <img src={setaVirar}/>
+                <img onClick={exibirPergunta} src={setaVirar}/>
             </OpenCard>
             </>
         )
     }
-    console.log(enabled)
 
     return (
         <>
