@@ -5,19 +5,19 @@ import Footer from "./components/Footer"
 import GlobalStyle from "./components/GlobalStyle"
 import React, {useState} from "react"
 
-
-
 export default function App() {
-  
- 
+  const [contador, setContador] = useState(0)
   return (
     <ScreenContainer>
       <GlobalStyle/>
       <Logo/>
       <FlashCards
-
+        setContador={setContador}
+        contador={contador}
       />
-      <Footer/>
+      <Footer
+        contador={contador}
+      />
     </ScreenContainer>
   )
 }

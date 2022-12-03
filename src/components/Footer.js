@@ -1,12 +1,12 @@
 import styled from "styled-components"
+import cards from "./Cards"
 
-export default function footer(){
+export default function footer({contador}){
     return(
         <FooterConcluidos>
             <p>
-                0/4 CONCLUÍDOS
+                {contador}/{cards.length} CONCLUÍDOS
             </p>
-            {/*<ContainerBotoes></ContainerBotoes>*/}
         </FooterConcluidos>
     )
 }
