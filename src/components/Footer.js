@@ -29,11 +29,3 @@ const FooterConcluidos = styled.div`
     color: #333333;
     padding: 10px;
 `
-
-{/*const ContainerBotoes = styled.div`
-    display: flex;
-    width: 80%;
-    justify-content: space-between;
-    margin: 20px;
-
-`*/}

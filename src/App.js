@@ -16,7 +16,7 @@ export default function App() {
         contador={contador}
       />
       <Footer
-        contador={contador}
+      contador={contador}
       />
     </ScreenContainer>
   )

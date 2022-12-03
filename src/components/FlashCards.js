@@ -7,7 +7,7 @@ import erro from "../assets/img/icone_erro.png"
 import quase from "../assets/img/icone_quase.png"
 import certo from "../assets/img/icone_certo.png"
 
-export default function FlashCards({setContador, contador}) {
+export default function FlashCards({contador, setContador}) {
 
     function FlashCard(props) {
         let indice = cards.indexOf(props.pergunta)
@@ -27,12 +27,12 @@ export default function FlashCards({setContador, contador}) {
         }
 
         function naoLembrei() {
+            setContador(contador + 1)
             setEnabled(true)
             setClosedCardColor("#FF3030")
             setDecoration("line-through")
             setFinal(true)
             setIcon(erro)
-            //setContador(contador + 1)
         }
 
         function quaseNao() {
@@ -41,16 +41,14 @@ export default function FlashCards({setContador, contador}) {
             setDecoration("line-through")
             setFinal(true)
             setIcon(quase)
-            //setContador(contador + 1)
         }
 
-        function zap(){
+        function zap() {
             setEnabled(true)
             setClosedCardColor("#2FBE34")
             setDecoration("line-through")
             setFinal(true)
             setIcon(certo)
-            //setContador(contador + 1)
         }
 
         return (
@@ -115,7 +113,6 @@ const ClosedCards = styled.div`
     text-decoration: ${props => props.decoracao}
   }
 `
-
 const OpenCard = styled.div`
   width: 300px;
   margin: 12px;
@@ -222,11 +219,9 @@ const BotaoVerde = styled.button`
         text-align: center;
     }
 `
-
 const IconeFinalizado = styled.div`
     display: ${props => props.finalizado ? "show" : "none"};
 `
-
 const IconePlay = styled.div`
     display: ${props => !props.finalizado ? "show" : "none"};
 `
