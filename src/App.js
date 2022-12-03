@@ -1,7 +1,7 @@
 import styled from "styled-components"
+import Footer from "./components/Footer"
 import Logo from "./components/Logo"
 import FlashCards from "./components/FlashCards"
-import Footer from "./components/Footer"
 import GlobalStyle from "./components/GlobalStyle"
 import React, {useState} from "react"
 
@@ -12,8 +12,9 @@ export default function App() {
       <GlobalStyle/>
       <Logo/>
       <FlashCards
-        setContador={setContador}
         contador={contador}
+        setContador={setContador}
+        
       />
       <Footer
       contador={contador}

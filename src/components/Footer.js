@@ -3,7 +3,7 @@ import cards from "./Cards"
 
 export default function footer({contador}){
     return(
-        <FooterConcluidos>
+        <FooterConcluidos data-test="footer">
             <p>
                 {contador}/{cards.length} CONCLUÍDOS
             </p>

@@ -17,6 +17,8 @@ export default function FlashCards({contador, setContador}) {
         const [decoration, setDecoration] = useState("")
         const [final, setFinal] = useState(false)
         const [icon, setIcon] = useState()
+        const [dataTestIcon, setDataTestIcon] = useState("")
+        //const [contador, setContador] = useState(0)
 
         function exibirPergunta() {
             setEnabled(false)
@@ -27,56 +29,63 @@ export default function FlashCards({contador, setContador}) {
         }
 
         function naoLembrei() {
-            setContador(contador + 1)
             setEnabled(true)
             setClosedCardColor("#FF3030")
             setDecoration("line-through")
             setFinal(true)
             setIcon(erro)
+            //setContador(contador + 1)
+            setDataTestIcon("no-icon")
         }
 
         function quaseNao() {
+            //setContadorCards(contadorCards + 1)
             setEnabled(true)
             setClosedCardColor("#FF922E")
             setDecoration("line-through")
             setFinal(true)
             setIcon(quase)
+            setDataTestIcon("partial-icon")
         }
 
         function zap() {
+            //setContadorCards(contadorCards + 1)
             setEnabled(true)
             setClosedCardColor("#2FBE34")
             setDecoration("line-through")
             setFinal(true)
             setIcon(certo)
+            setDataTestIcon("zap-icon")
         }
 
+        console.log(contador)
+        console.log(icon)
         return (
             <>
-                <ClosedCards visibilidade={enabled} cor={closedCardColor} decoracao={decoration} icone={icon}>
-                    <p>
+                <ClosedCards data-test="flashcard" visibilidade={enabled} cor={closedCardColor} decoracao={decoration} icone={icon}>
+                    <p data-test="flashcard-text">
                         Pergunta {indice + 1}
                     </p>
                     <IconePlay finalizado={final}>
-                        <img onClick={exibirPergunta} src={setaPlay} alt="seta do play" />
+                        <img data-test="play-btn" onClick={exibirPergunta} src={setaPlay} alt="seta do play" />
                     </IconePlay>
                     <IconeFinalizado finalizado={final}>
-                        <img src={icon} />
+                        <img data-test={dataTestIcon} src={icon} />
                     </IconeFinalizado>
                 </ClosedCards>
 
                 <OpenCard visibilidade={!enabled} setinha={showAnswer}>
-                    <p>
+                    <p data-test="flashcard-text">
                         {showAnswer ? props.pergunta.question : props.pergunta.answer}
                     </p>
-                    <img onClick={exibirResposta} src={setaVirar} alt="setinha redonda" />
+                    <img data-test="turn-btn" onClick={exibirResposta} src={setaVirar} alt="setinha redonda" />
 
                     <ContainerBotoes setinha={showAnswer}>
-                        <BotaoVermelho onClick={naoLembrei}><p>Não<br />lembrei</p></BotaoVermelho>
+                        <BotaoVermelho data-test="no-btn" onClick={naoLembrei}><p>Não<br />lembrei</p></BotaoVermelho>
 
-                        <BotaoAmarelo onClick={quaseNao}><p>Quase não lembrei</p></BotaoAmarelo>
+                        <BotaoAmarelo data-test="partial-btn" onClick={quaseNao}><p>Quase não lembrei</p></BotaoAmarelo>
 
-                        <BotaoVerde onClick={zap}><p>Zap!</p></BotaoVerde>
+                        <BotaoVerde data-test="zap-btn" onClick={zap}><p>Zap!</p></BotaoVerde>
                     </ContainerBotoes>
                 </OpenCard>
             </>
