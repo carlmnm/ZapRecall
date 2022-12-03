@@ -1,11 +1,11 @@
 import styled from "styled-components"
 import cards from "./Cards"
 
-export default function footer({contador}){
+export default function footer({counter}){
     return(
         <FooterConcluidos data-test="footer">
             <p>
-                {contador}/{cards.length} CONCLUÍDOS
+                {counter}/{cards.length} CONCLUÍDOS
             </p>
         </FooterConcluidos>
     )

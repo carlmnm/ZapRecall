@@ -4,20 +4,20 @@ import Logo from "./components/Logo"
 import FlashCards from "./components/FlashCards"
 import GlobalStyle from "./components/GlobalStyle"
 import React, {useState} from "react"
+import FlashCard from "./components/FlashCard"
 
 export default function App() {
-  const [contador, setContador] = useState(0)
+  const [counter, setCounter] = useState(0)
   return (
     <ScreenContainer>
       <GlobalStyle/>
       <Logo/>
       <FlashCards
-        contador={contador}
-        setContador={setContador}
-        
+        counter={counter}
+        setCounter={setCounter}
       />
       <Footer
-      contador={contador}
+        counter={counter}
       />
     </ScreenContainer>
   )
