@@ -27,12 +27,12 @@ export default function FlashCards({setContador, contador}) {
         }
 
         function naoLembrei() {
-            setContador(contador + 1)
             setEnabled(true)
             setClosedCardColor("#FF3030")
             setDecoration("line-through")
             setFinal(true)
             setIcon(erro)
+            //setContador(contador + 1)
         }
 
         function quaseNao() {
